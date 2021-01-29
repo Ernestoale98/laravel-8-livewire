@@ -1,0 +1,31 @@
+Jetstream es el nuevo paquete para crear un sistema de login
+Tiene dos posibilidades
+Livewire + Blade
+Inertia.js + Vue.js
+
+Todo esta diseñado con Tailwind CSS que nos ayuda a personalizar el CSS
+
+====> Este proyecto esta direigido a Livewire + Blade <====
+
+Al crear el modelo y usar los parametros -mf hacemos referencia a que crear la migracion y el factory del modelo
+
+
+====> Factories
+
+La funcion definition es nueva de laravel 8 debe de retornar un array con las propiedades y el tipo de faker
+
+
+====> Livewire
+
+Es una herramienta para crear componentes de interfaces dinamicas
+Se instala con composer requiere livewire/livewire
+Se crea un componente con el comando
+php artisan make:livewire Nombre
+Los componentes solo pueden tener un contenedor.
+Al crear el componente te crea una clase del mismo componente donde regresar lo retorna con la funcion render y
+al ser una vista le podemos pasar los parametros que nececitamos sin nececidad de tener que hacer peticiones desde el cliente
+```
+return view('livewire.course-list', [
+            'courses' => Course::latest()->with('user')->take(9)->get()
+        ]);
+```
