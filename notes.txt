@@ -29,3 +29,42 @@ return view('livewire.course-list', [
             'courses' => Course::latest()->with('user')->take(9)->get()
         ]);
 ```
+
+====> Campos virtuales son Appends
+Alterar campos de las tablas mediante campos virtuales que no existe
+
+
+===> Rutas
+Laravel 8 tiene una nueva forma de usar los controladores en las rutas de esta forma:
+```
+ use App\Http\Controllers\PageController;
+ Route::view('/', [PageController::class, 'home'])->name('home');
+```
+
+====>Rutas dinamicas
+En las rutas dinamicas podemos decir por cual campo se va a buscar el elemento que esta usando e.g
+```
+Route::get('course/{course:slug}', [PageController::class, 'course'])->name('course');
+```
+De esta manera se va a buscar el curso por el nombre del slug asi en el controlado ya no se tiene que buscar el elemento 'hacer un find' sino que ya lo recibe como
+un parametro
+```
+public function course(Course $course)
+    {
+        return view('course', compact('course'));
+    }
+```
+
+
+
+===>Componentes
+Se crea con el comando
+php artisan make:component nombre
+Se crea dentro de las vistas en la carpeta components
+Se usa de la siguiente manera:
+
+```
+ <x-course-card :course="$course"></x-course-card>
+```
+Y le puedes pasar informacion al estilo de los props en Vue.js
+Estos componentes son de blade no de liverwire

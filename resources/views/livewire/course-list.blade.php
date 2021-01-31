@@ -1,6 +1,6 @@
-<div>
-    {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
-    @foreach($courses as $course)
-        {{$course->id}}
+{{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
+<div class="grid grid-cols-3 gap-4 mt-8">
+    @foreach ($courses as $course)
+        <x-course-card :course="$course"></x-course-card>
     @endforeach
 </div>
