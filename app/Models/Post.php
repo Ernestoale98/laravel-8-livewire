@@ -9,6 +9,12 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'course_id',
+        'free'
+    ];
+
     public function course()
     {
         return $this->belongsTo(Course::class);
